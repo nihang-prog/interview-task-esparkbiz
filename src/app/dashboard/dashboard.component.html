@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+ 
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          Job Application
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="dashboard">
+              <i class="material-icons">dashboard</i>
+              <p>Job Application Form</p>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+
+            <button class="btn btn-danger" style="margin-right: 30px;" (click)="logOut()"><i class="icofont icofont-pencil-alt-1" ></i>Logout</button>
+
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+            <div class="table-responsive">
+              <kendo-grid
+              [kendoGridBinding]="gridData"
+               [height]="450" 
+               [columnMenu]="true"
+               [pageSize]="10" 
+               [resizable]="true"
+               [pageable]="{buttonCount:5,pageSizes:[5,10,50,100]}" 
+               [filterable]="true"
+               [sortable]="true">
+                  <ng-template kendoGridToolbarTemplate>
+                    <a href="application"><button class="btn btn-warning">Add Application</button></a>
+                  </ng-template>
+                  <kendo-grid-column field="user_id" title="Id"></kendo-grid-column>
+                  <kendo-grid-column  field="fname" title="First Name"></kendo-grid-column>
+                  <kendo-grid-column field="lname" title="Last Name"></kendo-grid-column>
+                  <kendo-grid-column  field="designation" title="Designation"></kendo-grid-column>
+                  <kendo-grid-column field="email" title="Email"></kendo-grid-column>
+                  <kendo-grid-column  field="phone" title="Phone"></kendo-grid-column>
+                  <kendo-grid-command-column  title="Actions">
+                      <ng-template kendoGridCellTemplate let-data>
+                          <button class="btn btn-success"  (click)="edit(data.user_id)" >Edit</button>
+                          <button class="btn btn-danger" (click)="delete(data.user_id)">Delete</button>
+                      </ng-template>
+                      
+                  </kendo-grid-command-column>
+                  <ng-template kendoGridDetailTemplate let-dataItem>
+                    <section *ngIf="dataItem" class="row">
+                        <div class="col-md-3"><strong>Address 1 :-</strong> {{dataItem.address1}}</div>
+                        <div class="col-md-3"><strong>Address 2 :-</strong> {{dataItem.address2}}</div>
+                        <div class="col-md-3"><strong>City :-</strong> {{dataItem.city}}</div>
+                        <div class="col-md-3"><strong>State :-</strong> {{dataItem.state}}</div>
+                        <div class="col-md-3"><strong>Zipcode :-</strong> {{dataItem.zipcode}}</div>
+                        <div class="col-md-3"><strong>Gender :-</strong> {{dataItem.gender}}</div>
+                        <div class="col-md-3"><strong>Relationship status :-</strong> {{dataItem.relstatus}}</div>
+                        <div class="col-md-3"><strong>Date Of Birth :-</strong> {{dataItem.dob}}</div>
+                        <div class="col-md-3"><strong>SSC Board Name :-</strong> {{dataItem.ssc_board_name}}</div>
+                        <div class="col-md-3"><strong>SSC Passing Year :-</strong> {{dataItem.ssc_passing_year}}</div>
+                        <div class="col-md-3"><strong>SSC Percentage :-</strong> {{dataItem.ssc_percentage}}</div>
+                        <div class="col-md-3"><strong>HSC/Diploma Board Name :-</strong> {{dataItem.hsc_board_name}}</div>
+                        <div class="col-md-3"><strong>HSC/Diploma Passing Year :-</strong> {{dataItem.hsc_passing_year}}</div>
+                        <div class="col-md-3"><strong>HSC/Diploma Percentage :-</strong> {{dataItem.hsc_percentage}}</div>
+                        <div class="col-md-3"><strong>Degree Course Name :-</strong> {{dataItem.degree_course_name}}</div>
+                        <div class="col-md-3"><strong>Degree University :-</strong> {{dataItem.degree_university}}</div>
+                        <div class="col-md-3"><strong>Degree Passing Year :-</strong> {{dataItem.degree_passing_year}}</div>
+                        <div class="col-md-3"><strong>Degree Percentage :-</strong> {{dataItem.degree_percentage}}</div>
+                        <div class="col-md-3"><strong>Master Course Name :-</strong> {{dataItem.master_course_name}}</div>
+                        <div class="col-md-3"><strong>Master University :-</strong> {{dataItem.master_university}}</div>
+                        <div class="col-md-3"><strong>Master Passing Year :-</strong> {{dataItem.master_passing_year}}</div>
+                        <div class="col-md-3"><strong>Master Percentage :-</strong> {{dataItem.master_percentage}}</div>
+                        <div class="col-md-3"><strong>Hindi :-</strong>
+                            <span style="color: red;" *ngIf="dataItem.hindi == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.hindi == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Hindi Read:-</strong>
+                            <span style="color: red;" *ngIf="dataItem.hread == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.hread == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Hindi Write :-</strong>
+                            <span style="color: red;" *ngIf="dataItem.hwrite == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.hwrite == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Hindi Speak :-</strong>
+                            <span style="color: red;" *ngIf="dataItem.hspeak == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.hspeak == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>English :-</strong>
+                            <span style="color: red;" *ngIf="dataItem.english == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.english == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>English Read:-</strong>
+                            <span style="color: red;" *ngIf="dataItem.eread == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.eread == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>English Write :-</strong>
+                            <span style="color: red;" *ngIf="dataItem.ewrite == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.ewrite == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>English Speak :-</strong>
+                            <span style="color: red;" *ngIf="dataItem.espeak == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.espeak == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Gujarati :-</strong>
+                            <span style="color: red;" *ngIf="dataItem.gujarati == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.gujarati == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Gujarati Read:-</strong>
+                            <span style="color: red;" *ngIf="dataItem.gread == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.gread == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Gujarati Write :-</strong>
+                            <span style="color: red;" *ngIf="dataItem.gwrite == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.gwrite == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Gujarati Speak :-</strong>
+                            <span style="color: red;" *ngIf="dataItem.gspeak == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.gspeak == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Preffered Location :-</strong> {{dataItem.prefered_location}}</div>
+                        <div class="col-md-3"><strong>Notice Period :-</strong> {{dataItem.notice_period}}</div>
+                        <div class="col-md-3"><strong>Expected CTC :-</strong> {{dataItem.expexted_ctc}}</div>
+                        <div class="col-md-3"><strong>Current CTC :-</strong> {{dataItem.current_ctc}}</div>
+                        <div class="col-md-3"><strong>Department :-</strong> {{dataItem.department}}</div>
+                        <div class="col-md-3"><strong>Referance Name 1 :-</strong> {{dataItem.ref_name1}}</div>
+                        <div class="col-md-3"><strong>Referance Phone 1 :-</strong> {{dataItem.ref_mobile1}}</div>
+                        <div class="col-md-3"><strong>Referance Relation 1 :-</strong> {{dataItem.ref_reloation1}}</div>
+                        <div class="col-md-3"><strong>Referance Name 2 :-</strong> {{dataItem.ref_name2}}</div>
+                        <div class="col-md-3"><strong>Referance Phone 2 :-</strong> {{dataItem.ref_mobile2}}</div>
+                        <div class="col-md-3"><strong>Referance Relation 2 :-</strong> {{dataItem.ref_reloation2}}</div>
+                        <div class="col-md-3"><strong>Php :-</strong> 
+                            <span style="color: red;" *ngIf="dataItem.php == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.php == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Php Level :-</strong> {{dataItem.plevel}}</div>
+                        <div class="col-md-3"><strong>MySQl :-</strong> 
+                            <span style="color: red;" *ngIf="dataItem.mysql == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.mysql == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>MySQl Level :-</strong> {{dataItem.mlevel}}</div>
+                        <div class="col-md-3"><strong>Laravel :-</strong> 
+                            <span style="color: red;" *ngIf="dataItem.laravel == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.laravel == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Laravel Level :-</strong> {{dataItem.llevel}}</div>
+                        <div class="col-md-3"><strong>Oracle :-</strong>  
+                            <span style="color: red;" *ngIf="dataItem.oracle == 0">No</span>
+                            <span style="color: green;" *ngIf="dataItem.oracle == 1">Yes</span></div>
+                        <div class="col-md-3"><strong>Oracle Level :-</strong> {{dataItem.olevel}}</div>
+                    </section>
+                </ng-template>
+              </kendo-grid>
+            </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>

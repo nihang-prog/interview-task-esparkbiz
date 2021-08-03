@@ -1,0 +1,389 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #3f51b5 !important;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #3f51b5 !important;
+}
+
+@media(min-width:700px)
+{
+mat-radio-button#mat-radio-2 {
+    margin-top: 6px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+    font-size: 16px;
+    width: 10%;
+}
+}
+@media(max-width:700px)
+{
+label.mat-radio-label {
+    margin-left: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+}
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 2rem !important;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+/* You can add global styles to this file, and also import other style files */
+
+footer.footer {
+    color: #a9a9ab;
+    background-color: #20212b;
+    padding: 60px 0;
+  }
+  
+  .footer__title {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .footer__button {
+    width: 100%;
+    margin-top: 4px;
+  }
+  
+  .footer__form-input {
+    color: #9c9c9e;
+    border: none;
+    background: 0 0;
+    width: 100%;
+    border-bottom: 2px solid #373841;
+    padding: 4px 0 10px 0;
+  }
+  
+  .footer__form-input::-webkit-input-placeholder {
+    opacity: 1;
+  }
+  
+  .footer__form-input::-moz-placeholder {
+    opacity: 1;
+  }
+  
+  .footer__form-input:-ms-input-placeholder {
+    opacity: 1;
+  }
+  
+  .footer__form-input::-ms-input-placeholder {
+    opacity: 1;
+  }
+  
+  .footer__form-input::placeholder {
+    opacity: 1;
+  }
+  
+  .footer__form-submit {
+    background: #efc940;
+    margin-top: 30px;
+    width: 100%;
+  }
+  
+  .footer-logo__link {
+    text-decoration: none;
+  }
+  
+  .footer-logo__img {
+    max-height: 50px;
+    width: auto;
+  }
+  
+  @media only screen and (min-width:992px) {
+    .footer-logo__img {
+      max-height: 60px;
+    }
+  }
+  
+  .footer-socials {
+    padding: 0;
+    margin: 27px 0 30px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: #fff;
+  }
+  
+  @media only screen and (min-width:576px) {
+    .footer-socials {
+      margin-bottom: 0;
+    }
+  }
+  
+  .footer-socials__item {
+    list-style: none;
+  }
+  
+  .footer-socials__item:not(:last-of-type) {
+    margin-right: 40px;
+  }
+  
+  .footer-socials__link {
+    color: inherit;
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
+    transition: opacity .3s;
+  }
+  
+  .footer-socials__link:hover {
+    color: #fff;
+    opacity: .75;
+  }
+  
+  .footer-contacts {
+    margin-bottom: 30px;
+  }
+  
+  @media only screen and (min-width:992px) {
+    .footer-contacts {
+      margin-bottom: 0;
+    }
+  }
+  
+  .footer-contacts p {
+    margin-bottom: 0;
+    line-height: 32px;
+  }
+  
+  .footer-contacts p a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
+    transition: opacity .3s;
+  }
+  
+  .footer-contacts p a:hover {
+    color: inherit;
+    opacity: .75;
+  }
+  
+  .footer-menu {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+  @media only screen and (min-width:576px) {
+    .footer-menu {
+      margin-bottom: 0;
+    }
+  }
+  
+  .footer-menu__item {
+    list-style: none;
+    width: 50%;
+  }
+  
+  .footer-menu__item--active .footer-menu__link {
+    opacity: .75;
+  }
+  
+  .footer-menu__link {
+    display: inline-block;
+    position: relative;
+    color: #a9a9ab;
+    line-height: 32px;
+    text-decoration: none;
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
+    transition: opacity .3s;
+  }
+  
+  .footer-menu__link:hover {
+    color: #a9a9ab;
+    opacity: .75;
+  }
+  
+  .footer-menu__link::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: #efc940;
+    -webkit-transition: width .3s;
+    -o-transition: width .3s;
+    transition: width .3s;
+  }
+  
+  .footer-menu__item--active .footer-menu__link::after,.footer-menu__link:hover::after {
+    width: 100%;
+  }
+  
+  .footer-copyright {
+    margin-bottom: 0;
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  @media only screen and (min-width:768px) {
+    .footer-copyright {
+      margin-top: 70px;
+      margin-bottom: 0;
+      text-align: left;
+    }
+  }
+  
+  .footer-copyright,.footer-privacy {
+    color: #65656b;
+    font-size: 14px;
+  }
+  
+  .footer-privacy {
+    text-align: center;
+  }
+  
+  @media only screen and (min-width:768px) {
+    .footer-privacy {
+      text-align: right;
+    }
+  }
+  
+  .footer-privacy__link {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .footer-privacy__link:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+  
+  .footer-privacy__divider {
+    padding: 0 8px;
+  }
+  
+  footer.footer--front_2 .footer-contacts {
+    margin-top: 20px;
+  }
+  
+  footer.footer--front_2 .footer__title {
+    padding-top: 24px;
+    margin-bottom: 29px;
+  }
+  
+  footer.footer--front_3 {
+    padding-bottom: 0;
+  }
+  
+  footer.footer--front_3 .footer-socials {
+    margin-bottom: 0;
+  }
+  
+  footer.footer--front_3 .footer-contacts {
+    margin-top: 20px;
+  }
+  
+  footer.footer--front_3 .footer-menu {
+    padding-top: 30px;
+  }
+  
+  @media only screen and (min-width:992px) {
+    footer.footer--front_3 .footer-menu {
+      padding-top: 77px;
+    }
+  }
+  
+  footer.footer--front_3 .footer-menu__item {
+    width: 50%;
+  }
+  
+  @media only screen and (min-width:576px) {
+    footer.footer--front_3 .footer-menu__item {
+      width: 33.333%;
+    }
+  }
+  
+  @media only screen and (min-width:768px) {
+    footer.footer--front_3 .footer-menu__item {
+      width: 25%;
+    }
+  }
+  
+  footer.footer--front_3 .footer__form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  
+  @media only screen and (min-width:768px) {
+    footer.footer--front_3 .footer__form {
+      margin-top: 0;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+    }
+  }
+  
+  footer.footer--front_3 .footer__form-submit {
+    width: 200px;
+    margin-top: 15px;
+  }
+  
+  @media only screen and (min-width:768px) {
+    footer.footer--front_3 .footer__form-submit {
+      margin-top: 0;
+    }
+  }
+  
+  footer.footer--front_3 .footer-copyright {
+    margin: 0;
+  }
+  
+  footer.footer--front_3 .footer__lower {
+    border: 1px solid #2c2d37;
+    padding: 35px 0;
+    margin-top: 30px;
+  }
+  
+  @media only screen and (min-width:576px) {
+    footer.footer--front_3 .footer__lower {
+      margin-top: 50px;
+    }
+  }
+  .btn.btn-primary{
+    color: #fff;
+    background-color: #3f51b5  !important;
+    border-color: #3f51b5 !important;
+    box-shadow: 0 2px 2px 0 rgb(156 39 176 / 14%), 0 3px 1px -2px rgb(156 39 176 / 20%), 0 1px 5px 0 rgb(156 39 176 / 12%);
+}

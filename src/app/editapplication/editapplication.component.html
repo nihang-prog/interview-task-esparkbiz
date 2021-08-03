@@ -1,0 +1,347 @@
+<div class="container center_div" style="margin-top: 5%;" *ngFor="let data of user">
+    <mat-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="basicdetails">
+        <form [formGroup]="basicdetails" (ngSubmit)="basicdetail()">
+          <ng-template matStepLabel>Step 1</ng-template>
+         <div class="container center_div" style="margin-top: 3%;">
+          <div class="d-flex justify-content-between">
+            <span
+              ><h1 style="font-size: 22px; color: #1d244f; font-weight: 800">
+                Basic Details
+              </h1></span
+            >
+          </div>
+          <mat-form-field appearance="fill" class="col-md-4 mb-2">
+            <!-- <mat-label>First Name</mat-label> -->
+            <input matInput placeholder="Enter Your Firstname" formControlName="fname" [(ngModel)]="data.fname" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="col-md-4 mb-2">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Enter Your Lastname" formControlName="lname" [(ngModel)]="data.lname" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="col-md-4 mb-2">
+            <mat-label>Designation</mat-label>
+            <input matInput placeholder="Enter Your Designation" formControlName="designation" [(ngModel)]="data.designation" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="col-md-4 mb-2">
+            <mat-label>Date Of Birth</mat-label>
+            <input type="date" matInput placeholder="Enter Your DOB" formControlName="dob" [(ngModel)]="data.dob" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="col-md-4 mb-2">
+            <mat-label>Select Relationship Status</mat-label>
+            <mat-select formControlName="rstatus" [(ngModel)]="data.relstatus">
+              <mat-option value="Single">Single</mat-option>
+              <mat-option value="Married">Married</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-radio-group formControlName="gender" class="col-md-4 mb-2" [(ngModel)]="data.gender">
+            <mat-label>Gender</mat-label><br style="height: 10px;">
+            <mat-radio-button value="Male">Male</mat-radio-button>&nbsp;&nbsp;
+            <mat-radio-button  value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+    
+          <mat-form-field appearance="fill" class="col-md-6 mb-2">
+            <mat-label>Email Address</mat-label>
+            <input
+                    type="email"
+                    [email]="true"
+                    matInput
+                    formControlName="email"
+                    [(ngModel)]="data.email"
+                    required
+                  />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="col-md-6 mb-2">
+            <mat-label>Mobile No</mat-label>
+            <input
+            matInput
+            minlength="10"
+            maxlength="10"
+            formControlName="mobile"
+            [(ngModel)]="data.phone"
+            required
+          />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="col-md-6 mb-2">
+            <mat-label>Address 1</mat-label>
+            <textarea formControlName="address1" required matInput [(ngModel)]="data.address1"></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="col-md-6 mb-2">
+            <mat-label>Address 2</mat-label>
+            <textarea formControlName="address2" [(ngModel)]="data.address2" required matInput></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="col-md-4 mb-2">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Enter Your City" [(ngModel)]="data.city" formControlName="city" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="col-md-4 mb-2">
+            <mat-label>Select State</mat-label>
+            <mat-select formControlName="state" [(ngModel)]="data.state">
+              <mat-option value="Gujarat">Gujarat</mat-option>
+              <mat-option value="Rajasthan">Rajasthan</mat-option>
+              <mat-option value="M.P.">M.P.</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="col-md-4 mb-2">
+            <mat-label>Zipcode</mat-label>
+            <input matInput placeholder="Enter Your Zipcode" formControlName="zipcode" [(ngModel)]="data.zipcode" required>
+          </mat-form-field>
+        </div>
+          <div style="text-align: center;">
+            <button mat-button matStepperNext class="btn btn-primary">Next</button>
+          </div>
+        </form>
+      </mat-step>
+    
+    
+    
+    
+    
+      <mat-step [stepControl]="educationdetails" label="Step 2">
+        <form [formGroup]="educationdetails" (ngSubmit)="educationdetail()">
+          <div class="container center_div" style="margin-top: 3%;">
+            <div class="d-flex justify-content-between">
+              <span
+                ><h1 style="font-size: 22px; color: #1d244f; font-weight: 800">
+                  Education Details
+                </h1></span
+              >
+            </div>
+            <div class="d-flex justify-content-between">
+              <span
+                ><h1 style="font-size: 15px; color: #1d244f; font-weight: 800">
+                  SSC result
+                </h1></span
+              >
+            </div>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Name Of Board</mat-label>
+              <input matInput placeholder="Enter Your Name Of Board" formControlName="nboard" [(ngModel)]="data.ssc_board_name" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Passing Year</mat-label>
+              <input matInput type="number" placeholder="Enter Your Passing Year"  formControlName="pyear" [(ngModel)]="data.ssc_passing_year"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Percentage</mat-label>
+              <input matInput type="number" placeholder="Enter Your Percentage" formControlName="percentage" [(ngModel)]="data.ssc_percentage"  required>
+            </mat-form-field>
+            <div class="d-flex justify-content-between">
+              <span
+                ><h1 style="font-size: 15px; color: #1d244f; font-weight: 800">
+                  HSC/Diploma Result
+                </h1></span
+              >
+            </div>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Name Of Board</mat-label>
+              <input matInput placeholder="Enter Your Name Of Board" formControlName="hscboard" [(ngModel)]="data.hsc_board_name"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Passing Year</mat-label>
+              <input matInput type="number" placeholder="Enter Your Passing Year" formControlName="hscyear" [(ngModel)]="data.hsc_passing_year"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Percentage</mat-label>
+              <input matInput type="number" placeholder="Enter Your Percentage" formControlName="hscpercentage" [(ngModel)]="data.hsc_percentage"  required>
+            </mat-form-field>
+            <div class="d-flex justify-content-between">
+              <span
+                ><h1 style="font-size: 15px; color: #1d244f; font-weight: 800">
+                  Bachelor Degree
+                </h1></span
+              >
+            </div>
+            <mat-form-field appearance="fill" class="col-md-3 mb-2">
+              <mat-label>Course Name</mat-label>
+              <input matInput placeholder="Enter Your Course Name" formControlName="dcourse" [(ngModel)]="data.degree_course_name"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-3 mb-2">
+              <mat-label>University</mat-label>
+              <input matInput placeholder="Enter Your University" formControlName="duniversity" [(ngModel)]="data.degree_university"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-3 mb-2">
+              <mat-label>Passing Year</mat-label>
+              <input matInput type="number" placeholder="Enter Your Passing Year" formControlName="dyear" [(ngModel)]="data.degree_passing_year"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-3 mb-2">
+              <mat-label>Percentage</mat-label>
+              <input matInput type="number" placeholder="Enter Your Percentage" formControlName="dpercentage" [(ngModel)]="data.degree_percentage"  required>
+            </mat-form-field>
+            <div class="d-flex justify-content-between">
+              <span
+                ><h1 style="font-size: 15px; color: #1d244f; font-weight: 800">
+                  Master Degree
+                </h1></span
+              >
+            </div>
+            <mat-form-field appearance="fill" class="col-md-3 mb-2">
+              <mat-label>Course Name</mat-label>
+              <input matInput placeholder="Enter Your Course Name" formControlName="mcourse" [(ngModel)]="data.master_course_name"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-3 mb-2">
+              <mat-label>University</mat-label>
+              <input matInput placeholder="Enter Your University" formControlName="muniversity" [(ngModel)]="data.master_university" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-3 mb-2">
+              <mat-label>Passing Year</mat-label>
+              <input matInput type="number" placeholder="Enter Your Passing Year" formControlName="myear" [(ngModel)]="data.master_passing_year"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-3 mb-2">
+              <mat-label>Percentage</mat-label>
+              <input matInput type="number" placeholder="Enter Your Percentage" formControlName="mpercentage" [(ngModel)]="data.master_percentage"  required>
+            </mat-form-field>
+          </div>
+          <div style="text-align: center;">
+            <button mat-button matStepperNext class="btn btn-primary">Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+    
+    
+      <mat-step [stepControl]="LanguageKnown" label="Step 3">
+        <form [formGroup]="LanguageKnown" (ngSubmit)="language()">
+          <div class="container center_div" style="margin-top: 3%;">
+            <div class="d-flex justify-content-between">
+              <span
+                ><h1 style="font-size: 22px; color: #1d244f; font-weight: 800">
+                  Language Known
+                </h1></span
+              >
+            </div>
+            <div class="row" style="font-size: 17px;">
+              <mat-checkbox formControlName="Hindi" [(ngModel)]="data.hindi" >Hindi</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-checkbox formControlName="hread"  [(ngModel)]="data.hread" >Read</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-checkbox formControlName="hwrite" [(ngModel)]="data.hwrite" >Write</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-checkbox formControlName="hspeak" [(ngModel)]="data.hspeak" >Speak</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div><br>
+            <div class="row" style="font-size: 17px;">
+              <mat-checkbox formControlName="English"  [(ngModel)]="data.english" >English</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-checkbox formControlName="eread"  [(ngModel)]="data.eread" >Read</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-checkbox formControlName="ewrite" [(ngModel)]="data.ewrite" >Write</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-checkbox formControlName="espeak"  [(ngModel)]="data.espeak" >Speak</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div><br>
+            <div class="row" style="font-size: 17px;">
+              <mat-checkbox formControlName="Gujarati" [(ngModel)]="data.gujarati" >Gujarati</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-checkbox formControlName="gread" [(ngModel)]="data.gread" >Read</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-checkbox formControlName="gwrite" [(ngModel)]="data.gwrite" >Write</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-checkbox formControlName="gspeak"[(ngModel)]="data.gspeak" >Speak</mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+          <div style="text-align: center;">
+            <button mat-button matStepperNext class="btn btn-primary">Next</button>
+          </div>
+        </form>
+      </mat-step>
+       <mat-step [stepControl]="technology" label="Step 4">
+        <form [formGroup]="technology" (ngSubmit)="technologyk()">
+          <div class="container center_div" style="margin-top: 3%;">
+            <div class="d-flex justify-content-between">
+              <span
+                ><h1 style="font-size: 22px; color: #1d244f; font-weight: 800">
+                  Technologies you know
+                </h1></span
+              >
+            </div>
+            <div class="row" style="font-size: 17px;">
+                <mat-checkbox formControlName="PHP"  class="col-md-1 mb-2"[(ngModel)]="data.php"  >PHP</mat-checkbox>
+                <mat-radio-group formControlName="LPHP"  class="col-md-4 mb-2"[(ngModel)]="data.plevel"  >
+                <mat-radio-button value="PBeginer" >Beginer</mat-radio-button>&nbsp;&nbsp;
+                <mat-radio-button  value="PMideator"  >Mideator</mat-radio-button>&nbsp;&nbsp;
+                <mat-radio-button  value="PExpert">Expert</mat-radio-button>
+              </mat-radio-group>
+            </div><br>
+    
+            <div class="row" style="font-size: 17px;">
+              <mat-checkbox formControlName="MySql"  class="col-md-1 mb-2"[(ngModel)]="data.mysql"  >MySql</mat-checkbox>
+              <mat-radio-group formControlName="LMySql"  class="col-md-4 mb-2" [(ngModel)]="data.mlevel" >
+              <mat-radio-button value="MBeginer" >Beginer</mat-radio-button>&nbsp;&nbsp;
+              <mat-radio-button  value="MMideator" >Mideator</mat-radio-button>&nbsp;&nbsp;
+              <mat-radio-button  value="MExpert" >Expert</mat-radio-button>
+            </mat-radio-group>
+          </div><br>
+    
+          <div class="row" style="font-size: 17px;">
+            <mat-checkbox formControlName="Laravel" class="col-md-1 mb-2" [(ngModel)]="data.laravel" >Laravel</mat-checkbox>
+            <mat-radio-group formControlName="LLaravel"  class="col-md-4 mb-2" [(ngModel)]="data.llevel" >
+            <mat-radio-button value="LBeginer" >Beginer</mat-radio-button>&nbsp;&nbsp;
+            <mat-radio-button  value="LMideator" >Mideator</mat-radio-button>&nbsp;&nbsp;
+            <mat-radio-button  value="LExpert" >Expert</mat-radio-button>
+          </mat-radio-group>
+        </div><br>
+    
+          <div class="row" style="font-size: 17px;">
+            <mat-checkbox formControlName="Oracle"  class="col-md-1 mb-2" [(ngModel)]="data.oracle" >Oracle</mat-checkbox>
+            <mat-radio-group formControlName="LOracle" class="col-md-4 mb-2" [(ngModel)]="data.olevel" >
+            <mat-radio-button value="OBeginer"  >Beginer</mat-radio-button>&nbsp;&nbsp;
+            <mat-radio-button  value="OMideator" >Mideator</mat-radio-button>&nbsp;&nbsp;
+            <mat-radio-button  value="OExpert"  >Expert</mat-radio-button>
+          </mat-radio-group>
+        </div>
+            </div>
+          <div style="text-align: center;">
+            <button mat-button matStepperNext class="btn btn-primary">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="ReferanceContact" label="Step 5">
+        <form [formGroup]="ReferanceContact" (ngSubmit)="referancecontact()">
+          <div class="container center_div" style="margin-top: 3%;">
+            <div class="d-flex justify-content-between">
+              <span
+                ><h1 style="font-size: 22px; color: #1d244f; font-weight: 800">
+                  Referance Contact
+                </h1></span
+              >
+            </div>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Enter Name" formControlName="r1name"  [(ngModel)]="data.ref_name1"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Contact No</mat-label>
+              <input
+              matInput
+              minlength="10"
+              maxlength="10"
+              formControlName="r1contact"
+              [(ngModel)]="data.ref_mobile1" 
+              required
+            />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Relation</mat-label>
+              <input matInput placeholder="Enter Relation" formControlName="r1relation" [(ngModel)]="data.ref_reloation1"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Enter Name" formControlName="r2name" [(ngModel)]="data.ref_name2"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Contact No</mat-label>
+              <input
+              matInput
+              minlength="10"
+              maxlength="10"
+              formControlName="r2contact"
+              [(ngModel)]="data.ref_mobile2" 
+              required
+            />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="col-md-4 mb-2">
+              <mat-label>Relation</mat-label>
+              <input matInput placeholder="Enter Relation" formControlName="r2relation" [(ngModel)]="data.ref_reloation2"  required>
+            </mat-form-field>
+            </div>
+            <div style="text-align: center;">
+              <button mat-button matStepperNext class="btn btn-primary">Next</button>
+            </div>
+        </form>
+      </mat-step>
+    
+    </mat-stepper>
+    <div style="text-align: center;margin-top: 20px;" >
+    <a href="dashboard"><button class="btn btn-warning" style="font-size: 16px;">Back To Admin Panel</button></a>
+    </div>
+    </div>
